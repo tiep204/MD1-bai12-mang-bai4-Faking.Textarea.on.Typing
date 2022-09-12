@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  h1{
+    text-align: center;
+  }
+  textarea{
+    margin-left: 500px;
+    width: 300px;
+    height: 100px;
+  }
+</style>
+<h1>Faking Textarea on Typing</h1>
+<body onload="fake()">
+<form>
+  <textarea id="txt">
+
+  </textarea>
+</form>
+<script>
+  let textmen = [];
+  let run = "           ban la do ngoc       ";
+  textmen = run.split('');
+  console.log(textmen)
+  let a = "";
+
+  function fake() {
+    let text = document.getElementById('txt').value;
+    for (let i = 1; i <= text.length; i++) {
+      a = a + textmen[i];
+      if (i === 32) {
+        a = "";
+      }
+    }
+    document.getElementById('txt').value = a;
+    a = "";
+    setTimeout(fake, 1)
+  }
+</script>
+</body>
+</html>
